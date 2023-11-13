@@ -8,6 +8,7 @@ const todoModel=require('./model/todolist')
 const app=express()
 app.use(express.json())
 app.use(cookieParser())
+app.options('*', cors());
 app.use(cors({
     credentials: true,
     origin: ["https://todo-list1-client.vercel.app"],
