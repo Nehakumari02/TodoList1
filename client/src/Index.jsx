@@ -7,12 +7,12 @@ const Index = () => {
     axios.defaults.withCredentials = true;
     useEffect(()=>{
 
-        axios.get('https://todo-list1-eta.vercel.app/Get',{ withCredentials: true })
+        axios.get('https://todo-list1-zoar.vercel.app/Get',{ withCredentials: true })
         .then(result=>settodos(result.data))
         .catch(err=>console.log(err))
     },[])
     const handleEdit=(id)=>{
-        axios.put('https://todo-list1-eta.vercel.app/update/'+id,{ withCredentials: true })
+        axios.put('https://todo-list1-zoar.vercel.app/update/'+id,{ withCredentials: true })
         .then(result=>{
             location.reload()})
 
@@ -21,14 +21,14 @@ const Index = () => {
 
     }
     const handleDelete=(id)=>{
-        axios.delete('https://todo-list1-eta.vercel.app/delete/'+id,{ withCredentials: true })
+        axios.delete('https://todo-list1-zoar.vercel.app/delete/'+id,{ withCredentials: true })
         .then(result=>{location.reload()})  
         .catch(err=>console.log(err))
         
 
     }
     const handleLogout=()=>{
-        axios.post('https://todo-list1-eta.vercel.app/logout',{ withCredentials: true })
+        axios.post('https://todo-list1-zoar.vercel.app/ogout',{ withCredentials: true })
         .then(res=>{ window.location.href = '/login';})
         .catch(err=>console.log("Logout Failed"))
     }
