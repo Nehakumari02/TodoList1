@@ -4,6 +4,7 @@ import axios from 'axios'
 import { BsCircleFill, BsFillCheckCircleFill, BsFillCircleFill, BsFillTrashFill } from 'react-icons/bs';
 const Index = () => {
     const[todos,settodos]=useState([])
+    axios.defaults.withCredentials = true;
     useEffect(()=>{
 
         axios.get('https://todo-list1-eta.vercel.app/Get',{ withCredentials: true })
