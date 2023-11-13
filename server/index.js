@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
     credentials: true,
-    origin: ["https://todolist12.vercel.app/"],
+    origin: ["https://todo-list1-client.vercel.app/"],
     methods: ["GET", "POST","PUT" ,"DELETE"],
 
    
