@@ -17,7 +17,7 @@ app.use(cors({
 
 }))
 
-mongoose.connect('mongodb://127.0.0.1:27017/userdata',{
+mongoose.connect('mongodb+srv://nehapanwal02:5oTCwJdv0fRciEfy@cluster0.veoz76r.mongodb.net/userdata',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
