@@ -16,8 +16,6 @@ app.use(cors({
 
 }))
 
-res.header('Access-Control-Allow-Origin', '*');
-
 app.use(express.json())
 app.use(cookieParser())
 
