@@ -6,12 +6,12 @@ const Index = () => {
     const[todos,settodos]=useState([])
     useEffect(()=>{
 
-        axios.get('http://localhost:3001/Get',{ withCredentials: true })
+        axios.get('https://todolist12.vercel.app//Get',{ withCredentials: true })
         .then(result=>settodos(result.data))
         .catch(err=>console.log(err))
     },[])
     const handleEdit=(id)=>{
-        axios.put('http://localhost:3001/update/'+id,{ withCredentials: true })
+        axios.put('https://todolist12.vercel.app/update/'+id,{ withCredentials: true })
         .then(result=>{
             location.reload()})
 
@@ -20,14 +20,14 @@ const Index = () => {
 
     }
     const handleDelete=(id)=>{
-        axios.delete('http://localhost:3001/delete/'+id,{ withCredentials: true })
+        axios.delete('https://todolist12.vercel.app//delete/'+id,{ withCredentials: true })
         .then(result=>{location.reload()})  
         .catch(err=>console.log(err))
         
 
     }
     const handleLogout=()=>{
-        axios.post('http://localhost:3001/logout',{ withCredentials: true })
+        axios.post('https://todolist12.vercel.app/logout',{ withCredentials: true })
         .then(res=>{ window.location.href = '/login';})
         .catch(err=>console.log("Logout Failed"))
     }
