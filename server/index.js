@@ -92,7 +92,7 @@ app.post('/login',async(req,res)=>{
 })
 app.post('/add', async (req, res) => {
     const task = req.body.task;
-    const token = req.cookies.jwt
+    const token =await req.cookies.jwt
     //console.log(`the secret key is ${req.cookies.jwt}`);
     if (!token) {
         return res.status(501).json({ error: 'Token missing' });
