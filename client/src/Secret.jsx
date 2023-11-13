@@ -3,7 +3,7 @@ import axios from 'axios'
 const Secret = () => {
   const [task,setTask]=useState()
   const addHandle=()=>{
-    axios.post('https://todo-list1-eta.vercel.app/add',{task:task},{ withCredentials: true })
+    axios.post('https://todo-list1-zoar.vercel.app/add',{task:task},{ withCredentials: true })
     .then(result=>{
       location.reload()
     })
