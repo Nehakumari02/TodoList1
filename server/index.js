@@ -7,23 +7,20 @@ const usermodel=require('./model/userdata')
 const todoModel=require('./model/todolist')
 const app=express()
 app.use(cors({
-    credentials: true,
+    
     origin: "*",
     methods: ["GET", "POST","PUT" ,"DELETE"],
+    credentials: true,
 
    
 
 }))
-app.options('*', cors());
 app.use(express.json())
 app.use(cookieParser())
 
 
 
-mongoose.connect('mongodb+srv://nehapanwal02:5oTCwJdv0fRciEfy@cluster0.veoz76r.mongodb.net/userdata',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect('mongodb+srv://nehapanwal02:5oTCwJdv0fRciEfy@cluster0.veoz76r.mongodb.net/userdata')
 const authenticate=async(req,res,next)=>{
     const token=req.cookies.jwt;
     if(!token){
