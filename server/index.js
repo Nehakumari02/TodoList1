@@ -6,15 +6,24 @@ const cookieParser = require('cookie-parser')
 const usermodel=require('./model/userdata')
 const todoModel=require('./model/todolist')
 const app=express()
-app.use(cors({
+// app.use(cors({
     
-    origin: ["https://todo-list1-client.vercel.app"],
-    methods: ["GET", "POST","PUT" ,"DELETE"],
-    credentials: true,
+//     origin: ["https://todo-list1-client.vercel.app"],
+//     methods: ["GET", "POST","PUT" ,"DELETE"],
+//     credentials: true,
 
    
 
-}))
+// }))
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://todo-list1-client.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+res.header('Access-Control-Allow-Origin', '*');
+
 app.use(express.json())
 app.use(cookieParser())
 
