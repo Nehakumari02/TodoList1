@@ -70,7 +70,8 @@ app.post('/login',async(req,res)=>{
                 console.log("user logged in succesfully")
                 res.cookie("jwt",token,{
                     expires: new Date(Date.now() + 5000000),
-                    httpOnly: true
+                    httpOnly: true,
+                    sameSite: "none",
                 })
                 console.log(req.cookies.jwt)
                 res.json("Sucess")  
