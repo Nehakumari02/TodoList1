@@ -3,7 +3,7 @@ import axios from 'axios'
 const Inputfld = () => {
   const [task,setTask]=useState()
   const addHandle=()=>{
-    axios.post('https://todolist12.vercel.app/add',{task:task},{ withCredentials: true })
+    axios.post('https://todo-list1-server.vercel.app/add',{task:task},{ withCredentials: true })
     .then(result=>{
       location.reload()
     })
