@@ -10,7 +10,7 @@ function SignupForm(){
     const navigate=useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault()
-        axios.post("https://todo-list1-eta.vercel.app/register",{user,email,password},{ withCredentials: true })
+        axios.post("https://todo-list1-zoar.vercel.app/register",{user,email,password},{ withCredentials: true })
         .then(res=>{
             if(res.data=="email already registered"){
                 alert("Email Already Exists")
