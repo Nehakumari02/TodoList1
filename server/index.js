@@ -6,9 +6,6 @@ const cookieParser = require('cookie-parser')
 const usermodel=require('./model/userdata')
 const todoModel=require('./model/todolist')
 const app=express()
-app.use(express.json())
-app.use(cookieParser())
-app.options('*', cors());
 app.use(cors({
     credentials: true,
     origin: ["https://todo-list1-client.vercel.app"],
@@ -17,6 +14,11 @@ app.use(cors({
    
 
 }))
+app.options('*', cors());
+app.use(express.json())
+app.use(cookieParser())
+
+
 
 mongoose.connect('mongodb+srv://nehapanwal02:5oTCwJdv0fRciEfy@cluster0.veoz76r.mongodb.net/userdata',{
     useNewUrlParser: true,
