@@ -12,10 +12,9 @@ const Index = () => {
     },[])
     const handleEdit=(id)=>{
         axios.put('http://localhost:3001/update/'+id,{ withCredentials: true })
-        .then(result=>{
-            location.reload()})
-
+        .then(result=>{window.location.reload()})  
         .catch(err=>console.log(err))
+        
 
 
     }

@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "cookie-parser": "^1.4.6",
-    "express-session": "^1.17.3",
-    "jsonwebtoken": "^9.0.2",
-    "react-icons": "^4.11.0"
-  }
-}

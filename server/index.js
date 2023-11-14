@@ -47,9 +47,7 @@ app.post('/register',async(req,res)=>{
             useremail:email,
             todos: [],
         })
-        newUser.save()  
-            .then(data => res.json(data))
-            .catch(err1 => console.log(err1));
+        await newUser.save()  
         usermodel.create(req.body)
         .then(data=>console.log(res.json(data)))
         .catch(err1=>console.log(err1))
@@ -149,8 +147,6 @@ app.put('/update/:id',async(req,res)=>{
 })
 app.delete('/delete/:id',async(req,res)=>{
     const {id}=req.params;
-    console.log(id)
-    
     try {
         const result = await todoModel.updateOne({ "todos._id": id },
         { $pull: { todos: { _id: id } } });
