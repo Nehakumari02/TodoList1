@@ -73,6 +73,7 @@ app.post('/login',async(req,res)=>{
                     expires: new Date(Date.now() + 5000000),
                     httpOnly: true,
                     sameSite: "none",
+                    secure: true,
                 })
                 console.log(req.cookies.jwt)
                 res.json("Sucess")  
