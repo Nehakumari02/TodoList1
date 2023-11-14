@@ -4,9 +4,10 @@ import axios from 'axios'
 import { BsCircleFill, BsFillCheckCircleFill, BsFillCircleFill, BsFillTrashFill } from 'react-icons/bs';
 const Index = () => {
     const[todos,settodos]=useState([])
+    axios.defaults.withCredentials = true;
     useEffect(()=>{
 
-        axios.get('http://localhost:3001/Get',{ withCredentials: true })
+        axios.get('https://todo-list1-zoar.vercel.app/Get',{ withCredentials: true })
         .then(result=>settodos(result.data))
         .catch(err=>console.log(err))
     },[])
@@ -19,14 +20,14 @@ const Index = () => {
 
     }
     const handleDelete=(id)=>{
-        axios.delete('http://localhost:3001/delete/'+id,{ withCredentials: true })
+        axios.delete('https://todo-list1-zoar.vercel.app/delete/'+id,{ withCredentials: true })
         .then(result=>{location.reload()})  
         .catch(err=>console.log(err))
         
 
     }
     const handleLogout=()=>{
-        axios.post('http://localhost:3001/logout',{ withCredentials: true })
+        axios.post('https://todo-list1-zoar.vercel.app/logout',{ withCredentials: true })
         .then(res=>{ window.location.href = '/login';})
         .catch(err=>console.log("Logout Failed"))
     }

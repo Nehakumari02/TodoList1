@@ -6,21 +6,22 @@ const cookieParser = require('cookie-parser')
 const usermodel=require('./model/userdata')
 const todoModel=require('./model/todolist')
 const app=express()
-app.use(express.json())
-app.use(cookieParser())
 app.use(cors({
-    credentials: true,
-    origin: ["http://localhost:5173"],
+    
+    origin: ["https://todo-list1-client.vercel.app"],
     methods: ["GET", "POST","PUT" ,"DELETE"],
+    credentials: true,
 
    
 
 }))
 
-mongoose.connect('mongodb://127.0.0.1:27017/userdata',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+app.use(express.json())
+app.use(cookieParser())
+
+
+
+mongoose.connect('mongodb+srv://nehapanwal02:5oTCwJdv0fRciEfy@cluster0.veoz76r.mongodb.net/userdata')
 const authenticate=async(req,res,next)=>{
     const token=req.cookies.jwt;
     if(!token){
@@ -68,7 +69,9 @@ app.post('/login',async(req,res)=>{
                 console.log("user logged in succesfully")
                 res.cookie("jwt",token,{
                     expires: new Date(Date.now() + 5000000),
-                    httpOnly: true
+                    httpOnly: true,
+                    sameSite: "none",
+                    secure: true,
                 })
                 console.log(req.cookies.jwt)
                 res.json("Sucess")  
@@ -88,7 +91,7 @@ app.post('/login',async(req,res)=>{
 })
 app.post('/add', async (req, res) => {
     const task = req.body.task;
-    const token = req.cookies.jwt
+    const token =await req.cookies.jwt
     //console.log(`the secret key is ${req.cookies.jwt}`);
     if (!token) {
         return res.status(501).json({ error: 'Token missing' });
