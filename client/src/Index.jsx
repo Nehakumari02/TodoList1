@@ -28,7 +28,7 @@ const Index = () => {
 
     }
     const handleLogout=()=>{
-        axios.post('https://todo-list1-zoar.vercel.app/ogout',{ withCredentials: true })
+        axios.post('https://todo-list1-zoar.vercel.app/logout',{ withCredentials: true })
         .then(res=>{ window.location.href = '/login';})
         .catch(err=>console.log("Logout Failed"))
     }
